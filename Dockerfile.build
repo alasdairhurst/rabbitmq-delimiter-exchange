@@ -1,7 +1,16 @@
-FROM elixir:1.16-otp-26 as base
+FROM elixir:1.16-otp-26 AS base
 
 ENV LANG=C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update && \
     apt-get -y install rsync
+
+# COPY ./ /opt/rabbitmq
+# WORKDIR /opt/rabbitmq
+
+# RUN git branch -D v3.11.x || true
+# RUN git checkout -b v3.11.x
+
+# RUN make
+# RUN make dist
